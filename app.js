@@ -7,6 +7,17 @@ const totalItem = document.getElementById("total-item");
 
 addTodoBtn.addEventListener("click", () => {
 
+    startWork();
+})
+
+document.addEventListener("keydown", (e)=>{
+    if(e.key === "Enter")
+    {
+        startWork();
+    }
+})
+
+function startWork(){
     const inputValue = todoInput.value;
     todoInput.value = "";
 
@@ -15,7 +26,7 @@ addTodoBtn.addEventListener("click", () => {
         lists.push(inputValue);
         updateDisplay();
     }
-})
+}
 
 function updateDisplay()
 {
