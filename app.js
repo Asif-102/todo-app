@@ -6,22 +6,37 @@ const todoList = document.getElementById("todo-list");
 const totalItem = document.getElementById("total-item");
 
 addTodoBtn.addEventListener("click", () => {
-    lists.push(todoInput.value);
+
+    const inputValue = todoInput.value;
     todoInput.value = "";
-    todoList.textContent = "";
-    
-    updateDisplay();
+
+    if(inputValue)
+    {
+        lists.push(inputValue);
+        updateDisplay();
+    }
 })
 
 function updateDisplay()
 {
+    todoList.textContent = "";
     totalItem.innerText = lists.length;
+
+    let index = 0;
 
     for(const list of lists)
     {
         const li = document.createElement("li");
         li.setAttribute("class", "list-group-item d-flex justify-content-between");
-        li.innerHTML = `<span>${list}</span><span class="btn btn-light btn-sm">X</span>`
+        li.innerHTML = `<span>${list}</span><span onclick="removeAList('${index}')" class="btn btn-light btn-sm">X</span>`
         todoList.appendChild(li);
+
+        index++;
     }
+}
+
+function removeAList(index)
+{
+    lists.splice(index, 1);
+    updateDisplay();
 }
