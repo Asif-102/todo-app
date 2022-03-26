@@ -9,7 +9,12 @@ addTodoBtn.addEventListener("click", () => {
     lists.push(todoInput.value);
     todoInput.value = "";
     todoList.textContent = "";
+    
+    updateDisplay();
+})
 
+function updateDisplay()
+{
     totalItem.innerText = lists.length;
 
     for(const list of lists)
@@ -19,5 +24,4 @@ addTodoBtn.addEventListener("click", () => {
         li.innerHTML = `<span>${list}</span><span class="btn btn-light btn-sm">X</span>`
         todoList.appendChild(li);
     }
-
-})
+}
