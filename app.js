@@ -38,7 +38,7 @@ function updateDisplay()
     for(const list of lists)
     {
         const li = document.createElement("li");
-        li.setAttribute("class", "list-group-item d-flex justify-content-between");
+        li.setAttribute("class", "list-group-item d-flex justify-content-between shadow-sm mb-1 bg-body rounded");
         li.innerHTML = `<span>${list}</span><span onclick="removeAList('${index}')" class="btn btn-light btn-sm">X</span>`
         todoList.appendChild(li);
 
